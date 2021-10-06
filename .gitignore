@@ -82,27 +82,3 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-
-# Compiled binary addons
-build/Release
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Distribution directories
-dist/
-
-# Typescript v1 declaration files
-typings/
-
-# Optional npm cache directory
-.npm
