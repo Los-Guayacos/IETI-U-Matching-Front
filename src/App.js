@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom"
+import { Home, Login, Register, Profile} from "./screens/index"
+import PrivateRoute from './navigation/PrivateRoute';
+import firebase from "firebase"
+import { useEffect } from 'react';
+import { useState } from 'react';
+import UserContext from "./persistence/UserContext"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [userId, setUserId] = useState();
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setUserId(user.uid);
+            }
+        })
+    }, [])
+
+    return (
+        <UserContext.Provider value={userId}>
+            <BrowserRouter>
+                <Switch>
+                    {/* <Route exact path="/login" component={Login} />
+                    <PrivateRoute exact path="/chat" component={Match} />
+                    <Route exact path="/register" component={Register} />
+                    <PrivateRoute exact path="/" component={Home} /> */}
+                    <PrivateRoute exact path="/profile" component={Profile} />
+                </Switch>
+            </BrowserRouter>
+        </UserContext.Provider>
+    );
 }
 
 export default App;
