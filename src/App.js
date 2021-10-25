@@ -1,18 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom"
 import { Home, Login, Register, Profile} from "./screens/index"
 import PrivateRoute from './navigation/PrivateRoute';
-import firebase from "firebase"
 import { useEffect } from 'react';
 import { useState } from 'react';
 import UserContext from "./persistence/UserContext"
+import firebase from "firebase"
 
 function App() {
 
     const [userId, setUserId] = useState();
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
+        auth.getAuth().onAuthStateChanged((user) => {
             if (user) {
                 setUserId(user.uid);
             }
