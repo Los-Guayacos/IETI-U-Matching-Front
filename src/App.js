@@ -1,17 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import { Home, Login, Register, Profile } from "./screens/index";
+import PrivateRoute from "./navigation/PrivateRoute";
+import { useEffect } from "react";
+import { useState } from "react";
+import UserContext from "./persistence/UserContext";
+import firebase from "firebase";
+import firebaseConfig from "./firebase/firebaseConfig"
 
 function App() {
-  const [showAdvanced, setShowAdvanced] = useState(true)
+  const [userId, setUserId] = useState();
+
+  useEffect(() => {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setUserId(user.uid);
+      }
+    });
+  }, []);
 
   return (
-    <div className='app'>
-      {showAdvanced ? <Advanced /> : <Simple />}
-      <div className='row'>
-        <p style={{ color: '#fff' }}>Show advanced example</p> <Switch checked={showAdvanced} onChange={setShowAdvanced} />
-      </div>
-    </div>
-  )
+    <UserContext.Provider value={userId}>
+      <BrowserRouter>
+        <Switch>
+          {/* <Route exact path="/login" component={Login} />
+                    <PrivateRoute exact path="/chat" component={Match} />
+                    <Route exact path="/register" component={Register} /> */}
+                    <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+        </Switch>
+      </BrowserRouter>
+    </UserContext.Provider>
+  );
 }
 
 export default App;

@@ -1,0 +1,29 @@
+.customNav {
+    background-color: #242424;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    background-color: #383838;
+    border-right: brown 1px solid;
+    border-bottom: brown 1px solid;
+}
+
+.item:hover{
+    background-color: brown;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: brown;
+}
+
+.logout:hover{
+    background-color: brown;
+}
