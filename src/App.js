@@ -6,6 +6,9 @@ import { useState } from "react";
 import UserContext from "./persistence/UserContext";
 import firebase from "firebase";
 import firebaseConfig from "./firebase/firebaseConfig"
+import Matching from "./screens/card/Matching";
+
+import './App.css'
 
 function App() {
   const [userId, setUserId] = useState();
@@ -22,17 +25,21 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={userId}>
+    <div className='app'>
+      <Matching />
+    </div>
+    /*<UserContext.Provider value={userId}>
       <BrowserRouter>
         <Switch>
           {/* <Route exact path="/login" component={Login} />
                     <PrivateRoute exact path="/chat" component={Match} />
-                    <Route exact path="/register" component={Register} /> */}
-                    <PrivateRoute exact path="/" component={Home} />
+                    <Route exact path="/register" component={Register} /> */
+                    /*<PrivateRoute exact path="/" component={Home} />
+                    <PrivateRoute exact path="/matching" component={Matching} />
           <PrivateRoute exact path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
-    </UserContext.Provider>
+    </UserContext.Provider>*/
   );
 }
 

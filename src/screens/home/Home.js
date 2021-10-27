@@ -26,7 +26,9 @@ export default function Home() {
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (!user) {
-                history.push("/login")
+                fetchUsers(limit);
+
+                //history.push("/login")
             } else {
                 fetchUsers(limit);
             }
