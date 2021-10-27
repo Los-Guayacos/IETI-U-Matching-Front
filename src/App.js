@@ -2,24 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [showAdvanced, setShowAdvanced] = useState(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      {showAdvanced ? <Advanced /> : <Simple />}
+      <div className='row'>
+        <p style={{ color: '#fff' }}>Show advanced example</p> <Switch checked={showAdvanced} onChange={setShowAdvanced} />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
