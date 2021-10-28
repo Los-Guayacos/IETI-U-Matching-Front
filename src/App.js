@@ -25,22 +25,19 @@ function App() {
   }, []);
 
   return (
-    <div className='app'>
-      <Matching />
-    </div>
-    /*<UserContext.Provider value={userId}>
+
+    <UserContext.Provider value={userId}>
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/login" component={Login} />
-                    <PrivateRoute exact path="/chat" component={Match} />
-                    <Route exact path="/register" component={Register} /> */
-                    /*<PrivateRoute exact path="/" component={Home} />
-                    <PrivateRoute exact path="/matching" component={Matching} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/matching" component={Matching} />
           <PrivateRoute exact path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
-    </UserContext.Provider>*/
+    </UserContext.Provider>
   );
 }
-
+/*<Route exact path="/login" component={Login} />
+          <PrivateRoute exact path="/chat" component={Match} />
+          <Route exact path="/register" component={Register} /> */
 export default App;

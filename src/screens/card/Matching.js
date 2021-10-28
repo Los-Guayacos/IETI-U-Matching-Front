@@ -3,36 +3,10 @@ import React, { useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import App from '../../App'
 
-const db = [
-  {
-    name: 'Luffy',
-    url: './img/luffy.jpg',
-    description: 'El rey de los piratas'
-  },
-  {
-    name: 'Fuque es re bambaro',
-    url: './img/jorgito.jpg',
-    description: 'Chupalooo!'
-  },
-  {
-    name: 'Bandida de Indigo',
-    url: './img/indigo.jpg',
-    description: 'Mamá luchona'
-  },
-  {
-    name: 'Bandida de Roots',
-    url: './img/roots.jpg',
-    description: 'De medallo bebé'
-  },
-  {
-    name: 'Bandida de Tierra bomba',
-    url: './img/tierrab.jpg',
-    description: 'Me gustan colombianos'
-  }
-]
 
-export default function Matching () {
-  const characters = db
+
+export default function Matching (props) {
+  const characters = props.db
   const [lastDirection, setLastDirection] = useState()
 
   const swiped = (direction, nameToDelete) => {
