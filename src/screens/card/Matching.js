@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
 import App from '../../App'
-
+import './Matching.css'
 
 
 export default function Matching (props) {
