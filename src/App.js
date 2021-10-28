@@ -5,14 +5,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import UserContext from "./persistence/UserContext";
 import firebase from "firebase";
-<<<<<<< HEAD
-import firebaseConfig from "./firebase/firebaseConfig";
-=======
 import firebaseConfig from "./firebase/firebaseConfig"
 import Matching from "./screens/card/Matching";
 
 import './App.css'
->>>>>>> e93ca3ff97cf56de036e1711534a4e0764344833
 
 function App() {
   const [userId, setUserId] = useState();
