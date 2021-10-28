@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import UserContext from "./persistence/UserContext";
 import firebase from "firebase";
-import firebaseConfig from "./firebase/firebaseConfig"
+import firebaseConfig from "./firebase/firebaseConfig";
 
 function App() {
   const [userId, setUserId] = useState();
@@ -28,8 +28,8 @@ function App() {
           {/* <Route exact path="/login" component={Login} />
                     <PrivateRoute exact path="/chat" component={Match} />
                     <Route exact path="/register" component={Register} /> */}
-                    <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/profile" component={Profile} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>
