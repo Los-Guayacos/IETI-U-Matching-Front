@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
+
 const baseUrl="http://localhost:3001/usuarios";
 const cookies = new Cookies();
 class Login extends Component {
@@ -40,7 +41,7 @@ class Login extends Component {
                 cookies.set('carreer', respuesta.carreer, {path: "/"});
                 cookies.set('lastName', respuesta.lastName, {path: "/"});
                 alert(`Bienvenido ${respuesta.name} ${respuesta.lastName}`);
-                window.location.href="./menu";
+                window.location.href="./";
             }else{
                 alert('El usuario o la contraseña no son correctos');
             }
