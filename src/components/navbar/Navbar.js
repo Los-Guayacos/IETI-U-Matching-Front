@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import "./Navbar.css"
 import firebase from "firebase"
 import { useHistory } from "react-router-dom"
+import { Animated } from "react-animated-css"
 import { IconButton } from "@material-ui/core"
 import ExpandMore from "@material-ui/icons/MenuTwoTone"
+import { colors } from "../../constants"
 
 export default function NavBar() {
 
