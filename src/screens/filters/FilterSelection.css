@@ -1,0 +1,9 @@
+.input{
+    display: inline-block;
+    outline: none;
+}
+
+.input:focus{
+    outline: none;
+    background-color: aqua;
+}

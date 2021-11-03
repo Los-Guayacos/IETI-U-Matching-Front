@@ -4,6 +4,7 @@ import firebase from "firebase";
 import { useHistory, useLocation } from "react-router-dom";
 import UserServices from "../../services/UserServices";
 import MatchServices from "../../services/MatchServices";
+import { Animated } from "react-animated-css";
 
 export default function Home() {
 
