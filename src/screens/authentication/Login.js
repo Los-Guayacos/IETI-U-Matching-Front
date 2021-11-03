@@ -57,7 +57,7 @@ export default function Login() {
                 onSubmit={(e) => login(e)}
             >
                 <div>
-                    <h1 className="text-center text-light">U-MATCH</h1>
+                    <h1 className="text-center text-light">U-MATCHING</h1>
                     <span className="d-block text-center text-light">Encuentra tu pareja perfecta</span>
                 </div>
 
