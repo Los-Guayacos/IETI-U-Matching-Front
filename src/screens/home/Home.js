@@ -4,35 +4,7 @@ import firebase from "firebase";
 import { useHistory, useLocation } from "react-router-dom";
 import UserServices from "../../services/UserServices";
 import MatchServices from "../../services/MatchServices";
-import Matching from "../card/Matching";
-
-const db = [
-    {
-      name: 'Luffy',
-      url: './img/luffy.jpg',
-      description: 'El rey de los piratas'
-    },
-    {
-      name: 'Fuque es re bambaro',
-      url: './img/jorgito.jpg',
-      description: 'Chupalooo!'
-    },
-    {
-      name: 'Bandida de Indigo',
-      url: './img/indigo.jpg',
-      description: 'Mamá luchona'
-    },
-    {
-      name: 'Bandida de Roots',
-      url: './img/roots.jpg',
-      description: 'De medallo bebé'
-    },
-    {
-      name: 'Bandida de Tierra bomba',
-      url: './img/tierrab.jpg',
-      description: 'Me gustan colombianos'
-    }
-  ]
+import { Animated } from "react-animated-css";
 
 export default function Home() {
 
@@ -55,9 +27,7 @@ export default function Home() {
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (!user) {
-                fetchUsers(limit);
-
-                //history.push("/login")
+                history.push("/login")
             } else {
                 fetchUsers(limit);
             }
@@ -69,9 +39,8 @@ export default function Home() {
     }, [index])
 
     const fetchUsers = (limit) => {
-        setLoading(false);
-        setUsers(db);
-        /*let updatedFilters = location.state ? location.state.filter : filters;
+        setLoading(true);
+        let updatedFilters = location.state ? location.state.filter : filters;
         setFilters(updatedFilters);
         firebase.auth().currentUser.getIdToken()
             .then((token) => {
@@ -85,7 +54,7 @@ export default function Home() {
                             setLoading(false);
                         }
                     }).catch(error => console.log(error));
-            }).catch(error => console.log(error));*/
+            }).catch(error => console.log(error));
     }
 
     const prevUser = () => {
@@ -126,14 +95,76 @@ export default function Home() {
 
     if (!loading && users.length <= 0) {
         return (
-            <div>
-                No hay usuarios
+            <div style={{ height: "100vh", backgroundColor: "#333333" }}>
+                <div style={{ display: "flex" }} className="h-100">
+                    <NavBar />
+                    <button id="modalButton" type="button" className="d-none" data-toggle="modal" data-target="#exampleModal"></button>
+                    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Nuevo Match 	&#10084;</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    Ahora puedes chatear con tu match y formar una nueva relación
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-10 d-flex align-items-center">
+                        <label className="text-center text-light d-block mx-auto">
+                            Tus filtros no concuerdan con ningun usuario, intenta ser mas abierto
+                            <button
+                                className="btn btn-danger d-block mx-auto mt-5"
+                                onClick={() => history.push("/filter")}
+                            >
+                                Ir a filtros
+                            </button>
+                        </label>
+                    </div>
+                </div>
             </div>
         )
     } else if (!loading) {
         return (
-            <div>
-                <Matching db = {db}/>
+            <div style={{ minHeight: "100vh", height: "auto", backgroundColor: "#333333" }}>
+                <div style={{ display: "flex" }} className="h-100">
+                    <NavBar />
+                    {
+                        !loading &&
+                        <div>
+                            <UserCard user={currentUser} />
+                            <MatchMenu likeUser={likeUser} prevUser={prevUser} nextUser={nextUser} />
+                        </div>
+                    }
+                    <UserInfo user={currentUser} />
+
+                    <button id="modalButton" type="button" className="d-none" data-toggle="modal" data-target="#exampleModal"></button>
+                    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Nuevo Match 	&#10084;</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    Ahora puedes chatear con tu match y formar una nueva relación
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     } else {
