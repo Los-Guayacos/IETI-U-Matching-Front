@@ -29,9 +29,9 @@ function App() {
     <UserContext.Provider value={userId}>
       <BrowserRouter>
         <Switch>
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/matching" component={Matching} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/matching" component={Matching} />
+          <PrivateRoute exact path="/" component={Home} />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>

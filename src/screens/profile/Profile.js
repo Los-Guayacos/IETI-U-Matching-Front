@@ -15,6 +15,8 @@ import AspectRatio from "react-aspect-ratio";
 import { Grid } from "@material-ui/core";
 import CustomTextField from "../../components/forms/CustomTextField";
 import ProfileIcon from "../../assets/user.png";
+import { TextField } from "@material-ui/core";
+import CustomTextField from "../../components/forms/CustomTextField";
 
 const initialStateUser = {
   name: "",
