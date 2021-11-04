@@ -4,7 +4,7 @@ const local = "http://localhost:8080/"
 class ChatServices {
 
     retrieveMessages(token, receiver, limit) {
-        return fetch(URL + "retrieveMessages?receiver=" + receiver + "&limit=" + limit, {
+        return fetch(local + "retrieveMessages?receiver=" + receiver + "&limit=" + limit, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -14,7 +14,7 @@ class ChatServices {
     }
 
     retrieveAllMessages(token, matches){
-        return fetch(URL + "retrieveAllMessages", {
+        return fetch(local + "retrieveAllMessages", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -25,7 +25,7 @@ class ChatServices {
     }
 
     sendMessage(msg, token) {
-        return fetch(URL + "send", {
+        return fetch(local + "send", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -3,7 +3,7 @@ const local = "http://localhost:8080/api/v1/matching/"
 class MatchServices{
 
     fetchMatches(token){
-        return fetch(URL + "fetchAll", {
+        return fetch(local + "fetchAll", {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -13,7 +13,7 @@ class MatchServices{
     }
 
     likeUser(token, userId){
-        return fetch(URL + "likeUser?userId=" + userId, {
+        return fetch(local + "likeUser?userId=" + userId, {
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -23,7 +23,7 @@ class MatchServices{
     }
 
     unmatch(token, userId){
-        return fetch(URL + "unmatch?unmatchId=" + userId, {
+        return fetch(local + "unmatch?unmatchId=" + userId, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",

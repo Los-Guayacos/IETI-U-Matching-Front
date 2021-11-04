@@ -4,7 +4,7 @@ const local = "http://localhost:8080/api/v1/"
 class UserServices {
 
     createUser(user) {
-        return fetch(URL + "createUser", {
+        return fetch(local + "createUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -14,7 +14,7 @@ class UserServices {
     }
 
     fetchAll(limit, token) {
-        return fetch(URL + "fetchAll?limit=" + limit, {
+        return fetch(local + "fetchAll?limit=" + limit, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -24,7 +24,7 @@ class UserServices {
     }
 
     fetchCustom(limit, filters, token) {
-        return fetch(URL + "fetchCustom?limit=" + limit, {
+        return fetch(local + "fetchCustom?limit=" + limit, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ class UserServices {
     }
 
     findUserByEmail(email) {
-        return fetch(URL + "findUserByEmail?email=" + email, {
+        return fetch(local + "findUserByEmail?email=" + email, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -44,7 +44,7 @@ class UserServices {
     }
 
     updateUser(user, token) {
-        return fetch(URL + "updateUser", {
+        return fetch(local + "updateUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +55,7 @@ class UserServices {
     }
 
     rateUser(token, userId, rate) {
-        return fetch(URL + "rateUser?userId=" + userId + "&rate=" + rate, {
+        return fetch(local + "rateUser?userId=" + userId + "&rate=" + rate, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
