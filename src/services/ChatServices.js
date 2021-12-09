@@ -1,10 +1,10 @@
-const URL = "https://u-match.herokuapp.com/"
+const URL = "https://u-matching.herokuapp.com/"
 const local = "http://localhost:8080/"
 
 class ChatServices {
 
     retrieveMessages(token, receiver, limit) {
-        return fetch(local + "retrieveMessages?receiver=" + receiver + "&limit=" + limit, {
+        return fetch(URL + "retrieveMessages?receiver=" + receiver + "&limit=" + limit, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
@@ -14,7 +14,7 @@ class ChatServices {
     }
 
     retrieveAllMessages(token, matches){
-        return fetch(local + "retrieveAllMessages", {
+        return fetch(URL + "retrieveAllMessages", {
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -25,7 +25,7 @@ class ChatServices {
     }
 
     sendMessage(msg, token) {
-        return fetch(local + "send", {
+        return fetch(URL + "send", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
