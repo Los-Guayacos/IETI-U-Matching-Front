@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useEffect, useState} from "react"
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom"
 import { Home, Login, Register, Profile, Match, FilterSelection } from "./screens/index"
