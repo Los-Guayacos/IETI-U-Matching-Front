@@ -70,7 +70,7 @@ export default function Chat(props) {
     const connect = () => {
         const Stomp = require("stompjs");
         var SockJS = require("sockjs-client");
-        SockJS = new SockJS("http://localhost:8080/wsk");
+        SockJS = new SockJS("https://u-matching.herokuapp.com/wsk");
         stompClient = Stomp.over(SockJS);
         stompClient.connect({}, onConnected, onError);
     };
