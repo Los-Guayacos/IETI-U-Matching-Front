@@ -1,11 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useEffect, useState} from "react"
 import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom"
 import { Home, Login, Register, Profile, Match, FilterSelection } from "./screens/index"
 import { NavBar } from './components/index';
 import PrivateRoute from './navigation/PrivateRoute';
 import firebase from "firebase"
-import { useEffect } from 'react';
-import { useState } from 'react';
 import UserContext from "./persistence/UserContext"
 import { firebaseConfig } from "./firebase/firebaseConfig"
 
