@@ -70,7 +70,7 @@ export default function Chat(props) {
     const connect = () => {
         const Stomp = require("stompjs");
         var SockJS = require("sockjs-client");
-        SockJS = new SockJS("https://u-match.herokuapp.com/ws");
+        SockJS = new SockJS("http://localhost:8080/wsk");
         stompClient = Stomp.over(SockJS);
         stompClient.connect({}, onConnected, onError);
     };
@@ -91,6 +91,7 @@ export default function Chat(props) {
 
     let onMessageReceived = (msg) => {
         let newMessage = JSON.parse(msg.body);
+        console.log("Message received", msg);
         setNewMessage(newMessage);
         autoScroll();
     }

@@ -63,7 +63,7 @@ export default function UserCard(props) {
                         <strong className="text-light ml-5">{user.totalRatings}</strong>
                     </div>
                     <div>
-                        <p className="text-justify text-center text-light">{user.description.length >= 100 ? user.description.slice(0, 100) + "..." : user.description}</p>
+                        <p className="text-justify text-center text-light">{user.description?.length >= 100 ? user.description.slice(0, 100) + "..." : user.description}</p>
                     </div>
                     {
                         user.interests &&
